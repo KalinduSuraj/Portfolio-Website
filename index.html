@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalindu Suraj - Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN - Always include this first for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
+    <!-- Google Fonts - Inter for a clean, modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS Styles - Organized for clarity -->
     <style>
+        /* Base Body Styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #1a202c; /* Deep dark blue-black background */
             color: #e2e8f0; /* Light gray text for contrast */
         }
+
+        /* Section Title Underline Effect */
         .section-title {
             position: relative;
-            display: inline-block;
+            display: inline-block; /* Allows width to conform to content */
             padding-bottom: 8px; /* Space for the underline */
         }
         .section-title::after {
@@ -24,42 +29,48 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 70%; /* Underline length */
+            width: 70%; /* Underline length relative to title */
             height: 3px;
             background-color: #fbbf24; /* Amber accent color */
             border-radius: 9999px; /* Fully rounded underline */
         }
-        /* Custom styles for skill tags */
-        .skill-category-title {
-            @apply text-lg font-bold mb-3; /* Removed text-white here as it's inherited from parent */
-        }
+
+        /* Reusable Skill Tag Styling */
         .skill-tag {
-            @apply bg-gray-700 text-sm px-3 py-1 rounded-full text-white hover:bg-gray-600 transition;
+            @apply bg-gray-700 text-sm px-3 py-1 rounded-full text-white hover:bg-gray-600 transition duration-300 ease-in-out transform hover:scale-105;
         }
 
-        /* Styles for hero section buttons */
-        .hero-button-primary {
-            @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-md shadow-lg text-gray-900 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition duration-300 ease-in-out transform hover:scale-105;
+        /* Navigation Link Styling */
+        .nav-link {
+            @apply text-white hover:text-amber-400 transition duration-300 ease-in-out transform hover:scale-105;
         }
-        /* Styles for contact section links/buttons */
-        .resume-button {
-            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition duration-300 ease-in-out transform hover:scale-105;
+
+        /* Social Icon Styling for Hero Section */
+        .social-icon {
+            @apply text-gray-400 hover:text-amber-400 transition duration-300 transform hover:scale-110;
         }
+
+        /* Contact Info Text Link Styling */
         .contact-info-text-link {
             @apply flex items-center text-lg text-gray-300 hover:text-amber-400 transition duration-300 ease-in-out;
         }
         .contact-info-icon-small {
             @apply w-5 h-5 mr-2 text-amber-400;
         }
-        .nav-link {
-            @apply text-white hover:text-amber-400 transition duration-300 ease-in-out transform hover:scale-105;
+
+        /* Resume Button Styling */
+        .resume-button {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition duration-300 ease-in-out transform hover:scale-105;
         }
-        .social-icon {
-            @apply text-gray-400 hover:text-amber-400 transition duration-300 transform hover:scale-110;
+
+        /* Hero Section Primary Button */
+        .hero-button-primary {
+            @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-md shadow-lg text-gray-900 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition duration-300 ease-in-out transform hover:scale-105;
         }
     </style>
 </head>
 <body class="antialiased">
+    <!-- Header Section -->
     <header class="bg-gray-900 text-white p-4 shadow-xl">
         <nav class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold p-2 rounded-md hover:text-amber-400 transition">Kalindu Suraj</h1>
@@ -73,42 +84,49 @@
         </nav>
     </header>
 
+    <!-- Main Content Area -->
     <main class="container mx-auto p-6 space-y-12">
-        <!-- Hero Section -->
+        <!-- Hero Section - Introduction and Key Stats -->
         <section id="hero" class="relative bg-gray-800 text-gray-200 p-10 pt-20 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
-            <!-- Social Icons on Left -->
+            <!-- Social Icons on Left (Visible only on medium screens and up) -->
             <div class="absolute left-4 top-1/2 -translate-y-1/2 hidden md:flex flex-col space-y-4">
                 <a href="https://github.com/KalinduSuraj" target="_blank" class="social-icon">
-                    <!-- GitHub Icon -->
+                    <!-- GitHub Icon SVG -->
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.909-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.701.122 2.474.324 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.673-4.566 4.92.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.583.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2Z" clip-rule="evenodd" /></svg>
                 </a>
                 <a href="https://linkedin.com/in/kalindu-suraj" target="_blank" class="social-icon">
-                    <!-- LinkedIn Icon -->
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.381 1.11-2.5 2.48-2.5s2.48 1.119 2.48 2.5zM0 24h4.96v-16h-4.96zM9.516 7.427c-1.325 0-2.448.868-2.839 2.052h-.033v-1.745h-4.887l.004 16h4.883v-7.986c0-2.029 1.096-3.957 3.56-3.957 2.464 0 3.407 2.029 3.407 3.957v7.986h4.883v-8.373c0-4.004-2.548-5.748-5.918-5.748z" /></svg>
+                    <!-- LinkedIn Icon SVG (provided by user) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="28" height="28" viewBox="0 0 48 48">
+                        <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"/>
+                    </svg>
                 </a>
                 <a href="https://kalindusuraj.medium.com" target="_blank" class="social-icon">
-                    <!-- Medium Icon -->
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.02l-2.939 5.879-1.968-3.939-2.939 3.918L6.293 8.98l-2.02 4.04-1.95-3.9L2 12l2.25 4.5 2.5-5 2.5 5 2.5-5 2.5 5L22 12l-2-4-2.02 4.04z" /></svg>
+                    <!-- Medium Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72" fill="currentColor">
+                        <path d="M45.049,14C57.06,14,58,14.94,58,26.951v18.098C58,57.06,57.06,58,45.049,58H26.951C14.94,58,14,57.06,14,45.049V26.951C14,14.94,14.94,14,26.951,14H45.049z M29.713,44.151c4.502,0,8.151-3.649,8.151-8.151c0-4.502-3.649-8.151-8.151-8.151c-4.502,0-8.151,3.649-8.151,8.151C21.562,40.502,25.212,44.151,29.713,44.151z M42.713,43.757c2.228,0,4.034-3.473,4.034-7.757c0-4.284-1.806-7.757-4.034-7.757c-2.228,0-4.034,3.473-4.034,7.757C38.679,40.284,40.485,43.757,42.713,43.757z M48.98,42.928c0.775,0,1.403-3.102,1.403-6.928s-0.628-6.928-1.403-6.928c-0.775,0-1.403,3.102-1.403,6.928S48.205,42.928,48.98,42.928z"></path>
+                    </svg>
                 </a>
             </div>
 
+            <!-- Hero Text Content -->
             <div class="flex-1 text-center md:text-left pl-0 md:pl-16">
                 <p class="text-lg text-amber-400 font-medium mb-2">Hi, I'm</p>
                 <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
                     Kalindu <span class="text-amber-400">Suraj</span>
                 </h1>
-                <p class="text-xl text-gray-300 mb-6">Second-year Computing Undergraduate & DevOps Enthusiast</p>
+                <p class="text-xl text-gray-300 mb-6">Computing Undergraduate | Passionate About DevOps, Cloud & Full-Stack Development</p>
                 <a href="#contact" class="inline-block bg-amber-400 text-gray-900 font-semibold px-6 py-2 rounded-full hover:bg-amber-300 transition">
                     Contact Me
                 </a>
             </div>
 
+            <!-- Hero Image -->
             <div class="mt-6 md:mt-0">
                 <img src="https://github.com/KalinduSuraj.png" alt="Kalindu Suraj" class="w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-amber-400 shadow-xl">
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section - Detailed introduction and interests -->
         <section id="about-detail" class="bg-gray-800 text-gray-200 p-10 rounded-lg shadow-lg flex flex-col md:flex-row gap-10 mt-16">
             <div class="flex-1">
                 <h2 class="text-3xl font-bold mb-6 section-title">About Me</h2>
@@ -129,13 +147,12 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Section - Showcase of work with detailed cards -->
         <section id="projects" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-2xl max-w-7xl mx-auto mt-16">
             <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Projects</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card -->
-                <!-- Repeat this block for each project -->
+                <!-- Project Card: IoT Elephant Detection Mobile App -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-semibold text-white mb-2">IoT Elephant Detection Mobile App (Flutter)</h3>
                     <p class="text-gray-300 mb-4">App syncs with IoT sensors to alert train drivers about elephants near tracks using Firebase and Maps API.</p>
@@ -146,7 +163,7 @@
                     </a>
                 </div>
 
-                <!-- Event Management System -->
+                <!-- Project Card: Event Management System -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-semibold text-white mb-2">Event Management System</h3>
                     <p class="text-gray-300 mb-4">A full-stack app to manage university/corporate events, CI/CD deployed with GitHub Actions.</p>
@@ -154,11 +171,11 @@
                     <p class="text-sm text-gray-400 mb-4"><strong>My Work:</strong> CI/CD setup, EC2 deployment, Database on RDS</p>
                     <div class="space-x-2">
                         <a href="https://github.com/Parindi-Binarika/EventFlow-backend" target="_blank" class="text-blue-400 hover:text-blue-300 transition">Backend &rarr;</a>
-                        <a href="https://github.com/Parindi-Binarika/EventFlow-frontend" target="_blank" class="hover:text-blue-300 transition">Frontend &rarr;</a>
+                        <a href="https://github.com/Parindi-Binarika/EventFlow-frontend" target="_blank" class="text-blue-400 hover:text-blue-300 transition">Frontend &rarr;</a>
                     </div>
                 </div>
 
-                <!-- EzBus - Bus Ticket Booking System -->
+                <!-- Project Card: EzBus - Bus Ticket Booking System -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-bold mb-2 text-white">EzBus - Bus Ticket Booking System</h3>
                     <p class="text-gray-300 mb-4">Digitized the expressway ticket booking in Sri Lanka with admin features and reservation logic.</p>
@@ -167,7 +184,7 @@
                     <a href="https://github.com/KalinduSuraj/EzBus-Expressway-Online-Seat-Booking-Web" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
                 </div>
 
-                <!-- Film Ticket Booking Web App -->
+                <!-- Project Card: Film Ticket Booking Web App -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-bold mb-2 text-white">Film Ticket Booking Web App</h3>
                     <p class="text-gray-300 mb-4">Cinema ticketing platform with seat selection, CRUD operations, and a responsive UI.</p>
@@ -176,7 +193,7 @@
                     <a href="https://github.com/KalinduSuraj/Film-Ticket-Booking-Web" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
                 </div>
 
-                <!-- Finance Management System (Java) -->
+                <!-- Project Card: Finance Management System (Java) -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-bold mb-2 text-white">Finance Management System (Java)</h3>
                     <p class="text-gray-300 mb-4">Desktop app to manage expenses and incomes with monthly reports and summary view.</p>
@@ -185,7 +202,7 @@
                     <a href="https://github.com/KalinduSuraj/Autolease-Desktop-Application" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
                 </div>
 
-                <!-- SchedU - Timetable App (WIP) -->
+                <!-- Project Card: SchedU - Timetable App (WIP) -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-bold mb-2 text-white">SchedU - Timetable App (WIP)</h3>
                     <p class="text-gray-300 mb-4">Mobile app for managing academic timetables with Firebase backend and role-based access.</p>
@@ -194,7 +211,7 @@
                     <a href="https://github.com/ShanIndeewa/SchedU" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
                 </div>
 
-                <!-- Technical Blog (Medium) -->
+                <!-- Project Card: Technical Blog (Medium) -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
                     <h3 class="text-xl font-bold mb-2 text-white">Technical Blog (Medium)</h3>
                     <p class="text-gray-300 mb-4">I write about real-world tools, patterns, and software practices to help new developers learn efficiently.</p>
@@ -205,13 +222,12 @@
             </div>
         </section>
 
-
-        <!-- Skills Section -->
+        <!-- Skills Section - Categorized display of technical and soft skills -->
         <section id="skills" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-2xl max-w-7xl mx-auto mt-16">
             <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Skills</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Skill Category Card -->
+                <!-- Skill Category Card: Languages -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-blue-400">Languages</h3>
                     <div class="flex flex-wrap gap-3">
@@ -225,6 +241,7 @@
                     </div>
                 </div>
 
+                <!-- Skill Category Card: Frontend -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-pink-400">Frontend</h3>
                     <div class="flex flex-wrap gap-3">
@@ -236,6 +253,7 @@
                     </div>
                 </div>
 
+                <!-- Skill Category Card: Backend -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-green-400">Backend</h3>
                     <div class="flex flex-wrap gap-3">
@@ -245,6 +263,7 @@
                     </div>
                 </div>
 
+                <!-- Skill Category Card: Databases -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-yellow-400">Databases</h3>
                     <div class="flex flex-wrap gap-3">
@@ -255,6 +274,7 @@
                     </div>
                 </div>
 
+                <!-- Skill Category Card: DevOps & Cloud -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-indigo-400">DevOps & Cloud</h3>
                     <div class="flex flex-wrap gap-3">
@@ -265,6 +285,7 @@
                     </div>
                 </div>
 
+                <!-- Skill Category Card: Tools -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <h3 class="text-xl font-semibold mb-4 text-red-400">Tools</h3>
                     <div class="flex flex-wrap gap-3">
@@ -274,7 +295,7 @@
                     </div>
                 </div>
 
-                <!-- Soft Skills (spans one column) -->
+                <!-- Skill Category Card: Soft Skills -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition col-span-full md:col-span-2 lg:col-span-1">
                     <h3 class="text-xl font-semibold mb-4 text-teal-400">Soft Skills</h3>
                     <div class="flex flex-wrap gap-3">
@@ -288,13 +309,12 @@
             </div>
         </section>
 
-
-        <!-- Education & Certifications Section -->
+        <!-- Education & Certifications Section - Academic and professional qualifications -->
         <section id="education" class="bg-gray-800 text-gray-200 p-8 rounded-lg shadow-lg">
             <h2 class="text-3xl font-semibold mb-8 section-title text-center">🎓 Education & Certifications</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Education -->
+                <!-- Education Sub-section -->
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                         <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 20.5a12.083 12.083 0 01-6.16-9.922L12 14z" /></svg>
@@ -315,7 +335,7 @@
                     </ul>
                 </div>
 
-                <!-- Certifications -->
+                <!-- Certifications Sub-section -->
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                         <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12H9m12 0A9 9 0 116 3.6m15 8.4A9 9 0 006.6 6" /></svg>
@@ -333,8 +353,7 @@
             </div>
         </section>
 
-
-        <!-- Contact Section -->
+        <!-- Contact Section - Ways to get in touch and social links -->
         <section id="contact" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-xl max-w-5xl mx-auto mt-16">
             <h2 class="text-4xl font-bold text-center mb-10 tracking-tight">Contact Me</h2>
 
@@ -358,7 +377,7 @@
 
             <!-- Resume Button -->
             <div class="text-center mb-10">
-                <a href="Kalindu_Suraj_CV.pdf" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg shadow-md transition-transform transform hover:scale-105">
+                <a href="uploaded:Kalindu_Suraj_CV.pdf" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg shadow-md transition-transform transform hover:scale-105">
                     View Resume
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -366,40 +385,38 @@
                 </a>
             </div>
 
-
-            <!-- Social Media -->
+            <!-- Social Media Badges -->
             <h3 class="text-2xl font-semibold text-center mb-6">Connect on Social</h3>
             <div class="flex flex-wrap justify-center gap-6">
-                <!-- GitHub -->
+                <!-- GitHub Badge -->
                 <a href="https://github.com/KalinduSuraj" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <img src="https://img.shields.io/badge/-KalinduSuraj-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge">
                 </a>
 
-                <!-- LinkedIn -->
+                <!-- LinkedIn Badge -->
                 <a href="https://linkedin.com/in/kalindu-suraj" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <img src="https://img.shields.io/badge/-kalindu--suraj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge">
                 </a>
 
-                <!-- Medium -->
+                <!-- Medium Badge -->
                 <a href="https://kalindusuraj.medium.com" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <img src="https://img.shields.io/badge/-kalindusuraj.medium.com-000000?style=for-the-badge&logo=medium&logoColor=white" alt="Medium Badge">
                 </a>
             </div>
-
         </section>
-
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-gray-900 text-gray-400 p-4 text-center mt-12 shadow-inner">
         <p>&copy; 2025 Kalindu Suraj. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript for Smooth Scrolling -->
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
+                // Scroll to the target section with smooth behavior
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
