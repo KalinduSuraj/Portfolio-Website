@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalindu Suraj - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Deep dark blue-black background */
+            color: #e2e8f0; /* Light gray text for contrast */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px; /* Space for the underline */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%; /* Underline length */
+            height: 3px;
+            background-color: #fbbf24; /* Amber accent color */
+            border-radius: 9999px; /* Fully rounded underline */
+        }
+        /* Custom styles for skill tags */
+        .skill-category-title {
+            @apply text-lg font-bold mb-3; /* Removed text-white here as it's inherited from parent */
+        }
+        .skill-tag {
+            @apply bg-gray-700 text-sm px-3 py-1 rounded-full text-white hover:bg-gray-600 transition;
+        }
+
+        /* Styles for hero section buttons */
+        .hero-button-primary {
+            @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-md shadow-lg text-gray-900 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        /* Styles for contact section links/buttons */
+        .resume-button {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .contact-info-text-link {
+            @apply flex items-center text-lg text-gray-300 hover:text-amber-400 transition duration-300 ease-in-out;
+        }
+        .contact-info-icon-small {
+            @apply w-5 h-5 mr-2 text-amber-400;
+        }
+        .nav-link {
+            @apply text-white hover:text-amber-400 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .social-icon {
+            @apply text-gray-400 hover:text-amber-400 transition duration-300 transform hover:scale-110;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-gray-900 text-white p-4 shadow-xl">
+        <nav class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold p-2 rounded-md hover:text-amber-400 transition">Kalindu Suraj</h1>
+            <ul class="flex space-x-6 text-base font-medium">
+                <li><a href="#about-detail" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-6 space-y-12">
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-gray-800 text-gray-200 p-10 pt-20 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
+            <!-- Social Icons on Left -->
+            <div class="absolute left-4 top-1/2 -translate-y-1/2 hidden md:flex flex-col space-y-4">
+                <a href="https://github.com/KalinduSuraj" target="_blank" class="social-icon">
+                    <!-- GitHub Icon -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.909-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.701.122 2.474.324 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.673-4.566 4.92.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.583.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2Z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://linkedin.com/in/kalindu-suraj" target="_blank" class="social-icon">
+                    <!-- LinkedIn Icon -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.381 1.11-2.5 2.48-2.5s2.48 1.119 2.48 2.5zM0 24h4.96v-16h-4.96zM9.516 7.427c-1.325 0-2.448.868-2.839 2.052h-.033v-1.745h-4.887l.004 16h4.883v-7.986c0-2.029 1.096-3.957 3.56-3.957 2.464 0 3.407 2.029 3.407 3.957v7.986h4.883v-8.373c0-4.004-2.548-5.748-5.918-5.748z" /></svg>
+                </a>
+                <a href="https://kalindusuraj.medium.com" target="_blank" class="social-icon">
+                    <!-- Medium Icon -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.02l-2.939 5.879-1.968-3.939-2.939 3.918L6.293 8.98l-2.02 4.04-1.95-3.9L2 12l2.25 4.5 2.5-5 2.5 5 2.5-5 2.5 5L22 12l-2-4-2.02 4.04z" /></svg>
+                </a>
+            </div>
+
+            <div class="flex-1 text-center md:text-left pl-0 md:pl-16">
+                <p class="text-lg text-amber-400 font-medium mb-2">Hi, I'm</p>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Kalindu <span class="text-amber-400">Suraj</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-6">Second-year Computing Undergraduate & DevOps Enthusiast</p>
+                <a href="#contact" class="inline-block bg-amber-400 text-gray-900 font-semibold px-6 py-2 rounded-full hover:bg-amber-300 transition">
+                    Contact Me
+                </a>
+            </div>
+
+            <div class="mt-6 md:mt-0">
+                <img src="https://github.com/KalinduSuraj.png" alt="Kalindu Suraj" class="w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-amber-400 shadow-xl">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-detail" class="bg-gray-800 text-gray-200 p-10 rounded-lg shadow-lg flex flex-col md:flex-row gap-10 mt-16">
+            <div class="flex-1">
+                <h2 class="text-3xl font-bold mb-6 section-title">About Me</h2>
+                <p class="text-lg mb-4 leading-relaxed">
+                    I'm a second-year Computing undergraduate at NIBM with a passion for building practical solutions through software and cloud technologies. I'm currently diving into the MERN stack and actively learning DevOps tools to enhance automation and deployment skills.
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                    With a strong academic background and hands-on experience in both frontend and backend technologies, I thrive in team environments and value continuous learning and practical innovation.
+                </p>
+                <h3 class="text-xl font-semibold text-white mb-4">My Interests</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag">Web Development</span>
+                    <span class="skill-tag">Cloud Computing</span>
+                    <span class="skill-tag">Automation</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Continuous Learning</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-2xl max-w-7xl mx-auto mt-16">
+            <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card -->
+                <!-- Repeat this block for each project -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-semibold text-white mb-2">IoT Elephant Detection Mobile App (Flutter)</h3>
+                    <p class="text-gray-300 mb-4">App syncs with IoT sensors to alert train drivers about elephants near tracks using Firebase and Maps API.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> Flutter, Dart, Firebase, Google Maps API</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Features:</strong> Live tracking, Realtime sync, Voice alerts</p>
+                    <a href="https://github.com/KalinduSuraj/Elephant-Tracking-App" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium transition">
+                        View on GitHub &rarr;
+                    </a>
+                </div>
+
+                <!-- Event Management System -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-semibold text-white mb-2">Event Management System</h3>
+                    <p class="text-gray-300 mb-4">A full-stack app to manage university/corporate events, CI/CD deployed with GitHub Actions.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> PHP, AWS EC2/RDS, MySQL, GitHub Actions</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>My Work:</strong> CI/CD setup, EC2 deployment, Database on RDS</p>
+                    <div class="space-x-2">
+                        <a href="https://github.com/Parindi-Binarika/EventFlow-backend" target="_blank" class="text-blue-400 hover:text-blue-300 transition">Backend &rarr;</a>
+                        <a href="https://github.com/Parindi-Binarika/EventFlow-frontend" target="_blank" class="hover:text-blue-300 transition">Frontend &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- EzBus - Bus Ticket Booking System -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold mb-2 text-white">EzBus - Bus Ticket Booking System</h3>
+                    <p class="text-gray-300 mb-4">Digitized the expressway ticket booking in Sri Lanka with admin features and reservation logic.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> PHP, MySQL, JavaScript, AJAX</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>My Work:</strong> Admin dashboard, Backend logic, Bootstrap UI</p>
+                    <a href="https://github.com/KalinduSuraj/EzBus-Expressway-Online-Seat-Booking-Web" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
+                </div>
+
+                <!-- Film Ticket Booking Web App -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold mb-2 text-white">Film Ticket Booking Web App</h3>
+                    <p class="text-gray-300 mb-4">Cinema ticketing platform with seat selection, CRUD operations, and a responsive UI.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> PHP, MySQL, JavaScript, Bootstrap</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>My Work:</strong> Backend CRUD, UI development</p>
+                    <a href="https://github.com/KalinduSuraj/Film-Ticket-Booking-Web" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
+                </div>
+
+                <!-- Finance Management System (Java) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold mb-2 text-white">Finance Management System (Java)</h3>
+                    <p class="text-gray-300 mb-4">Desktop app to manage expenses and incomes with monthly reports and summary view.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> Java Swing, JDBC, MySQL</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Features:</strong> Expense tracking, Summary reports</p>
+                    <a href="https://github.com/KalinduSuraj/Autolease-Desktop-Application" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
+                </div>
+
+                <!-- SchedU - Timetable App (WIP) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold mb-2 text-white">SchedU - Timetable App (WIP)</h3>
+                    <p class="text-gray-300 mb-4">Mobile app for managing academic timetables with Firebase backend and role-based access.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Tech Stack:</strong> Kotlin, Firebase, Android Studio</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Features:</strong> Personalized timetables, Email reminders</p>
+                    <a href="https://github.com/ShanIndeewa/SchedU" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View on GitHub &rarr;</a>
+                </div>
+
+                <!-- Technical Blog (Medium) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold mb-2 text-white">Technical Blog (Medium)</h3>
+                    <p class="text-gray-300 mb-4">I write about real-world tools, patterns, and software practices to help new developers learn efficiently.</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong>Platform:</strong> Medium</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Posts:</strong> Swagger, MVC, API docs, project tips</p>
+                    <a href="https://kalindusuraj.medium.com" target="_blank" class="text-blue-400 hover:text-blue-300 transition">View Blog &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-2xl max-w-7xl mx-auto mt-16">
+            <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Category Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Languages</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">Kotlin</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-pink-400">Frontend</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">AJAX</span>
+                        <span class="skill-tag">React (learning)</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Android Studio</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-green-400">Backend</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Node.js (learning)</span>
+                        <span class="skill-tag">Express.js (learning)</span>
+                        <span class="skill-tag">OOP</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-400">Databases</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB (learning)</span>
+                        <span class="skill-tag">AWS RDS</span>
+                        <span class="skill-tag">Firebase Realtime DB</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-indigo-400">DevOps & Cloud</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">CI/CD (GitHub Actions)</span>
+                        <span class="skill-tag">AWS (EC2, RDS)</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <h3 class="text-xl font-semibold mb-4 text-red-400">Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Visual Studio Code</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills (spans one column) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition col-span-full md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Teamwork & Collaboration</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Fast Learner</span>
+                        <span class="skill-tag">Adaptable to New Technologies</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="bg-gray-800 text-gray-200 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-semibold mb-8 section-title text-center">🎓 Education & Certifications</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 20.5a12.083 12.083 0 01-6.16-9.922L12 14z" /></svg>
+                        Education
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="font-semibold text-lg">Higher National Diploma in Software Engineering <span class="text-sm font-normal text-gray-400">(Reading)</span></p>
+                            <p class="text-sm text-gray-400">National Institute of Business Management</p>
+                            <p class="text-sm text-gray-500 italic">Sept 2024 – Present</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-lg">Diploma in Software Engineering</p>
+                            <p class="text-sm text-gray-400">National Institute of Business Management</p>
+                            <p class="text-sm text-gray-500 italic">July 2023 – Sept 2024 | GPA: 3.85</p>
+                            <p class="text-sm text-gray-400">Final Project: <em>Expressway Bus Ticket Booking Web Application</em></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12H9m12 0A9 9 0 116 3.6m15 8.4A9 9 0 006.6 6" /></svg>
+                        Certifications
+                    </h3>
+                    <ul class="space-y-3 list-inside list-disc marker:text-amber-400 text-sm md:text-base">
+                        <li><span class="text-gray-300">IBM DevOps and Software Engineering</span> <span class="italic text-gray-400">(In Progress)</span></li>
+                        <li><span class="text-gray-300">IBM Full-Stack JavaScript Developer</span> <span class="italic text-gray-400">(In Progress)</span></li>
+                        <li><a href="#" onclick="return false;" class="text-blue-400 hover:underline">Web Design for Beginners – University of Moratuwa</a></li>
+                        <li><a href="#" onclick="return false;" class="text-blue-400 hover:underline">Postman API Fundamentals Student Expert</a></li>
+                        <li><a href="#" onclick="return false;" class="text-blue-400 hover:underline">SQL (Advanced) – HackerRank</a></li>
+                        <li><a href="#" onclick="return false;" class="text-blue-400 hover:underline">JavaScript (Intermediate) – HackerRank</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-900 text-gray-100 px-6 py-12 rounded-2xl shadow-xl max-w-5xl mx-auto mt-16">
+            <h2 class="text-4xl font-bold text-center mb-10 tracking-tight">Contact Me</h2>
+
+            <!-- Direct Contact Info -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-10">
+                <a href="mailto:mwkalindusuraj@gmail.com" class="flex items-center gap-3 text-lg hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    mwkalindusuraj@gmail.com
+                </a>
+
+                <a href="tel:+94783031728" class="flex items-center gap-3 text-lg hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    (+94) 78 303 1728
+                </a>
+            </div>
+
+            <!-- Resume Button -->
+            <div class="text-center mb-10">
+                <a href="Kalindu_Suraj_CV.pdf" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg shadow-md transition-transform transform hover:scale-105">
+                    View Resume
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+
+
+            <!-- Social Media -->
+            <h3 class="text-2xl font-semibold text-center mb-6">Connect on Social</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- GitHub -->
+                <a href="https://github.com/KalinduSuraj" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <img src="https://img.shields.io/badge/-KalinduSuraj-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge">
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/kalindu-suraj" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <img src="https://img.shields.io/badge/-kalindu--suraj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge">
+                </a>
+
+                <!-- Medium -->
+                <a href="https://kalindusuraj.medium.com" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <img src="https://img.shields.io/badge/-kalindusuraj.medium.com-000000?style=for-the-badge&logo=medium&logoColor=white" alt="Medium Badge">
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 p-4 text-center mt-12 shadow-inner">
+        <p>&copy; 2025 Kalindu Suraj. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
